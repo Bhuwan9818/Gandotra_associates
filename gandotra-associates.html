@@ -4,565 +4,566 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gandotra & Associates — Litigation | Consultation | Compliances</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --black: #080808;
-    --charcoal: #0F0F0F;
-    --deep: #141414;
-    --gold: #C9A84C;
-    --gold-light: #E8C87A;
-    --gold-dim: #8B6914;
-    --gold-glow: rgba(201, 168, 76, 0.15);
-    --off-white: #F5F0E8;
-    --grey: #999;
-    --grey-light: #ccc;
-  }
+:root {
+  --cream:       #FAF8F4;
+  --cream-dark:  #F2EDE4;
+  --cream-mid:   #EDE6D8;
+  --white:       #FFFFFF;
+  --gold:        #B8922A;
+  --gold-light:  #D4A843;
+  --gold-pale:   #F0E0B0;
+  --gold-border: rgba(184,146,42,0.22);
+  --ink:         #1A1710;
+  --ink-mid:     #3D3829;
+  --ink-light:   #6B6353;
+  --ink-faint:   #9C9383;
+  --rule:        rgba(184,146,42,0.18);
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-  body {
-    background: var(--black);
-    color: var(--off-white);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-  }
+/* ══════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 84px; padding: 0 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250,248,244,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+  transition: height 0.3s, box-shadow 0.3s;
+}
+nav.scrolled { height: 68px; box-shadow: 0 2px 24px rgba(26,23,16,0.08); }
+.nav-brand {
+  display: flex; align-items: center; gap: 14px;
+}
+.nav-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--ink); letter-spacing: 0.5px; line-height: 1;
+}
+.nav-logo-text span { color: var(--gold); font-style: italic; }
+.nav-logo-sub {
+  font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--ink-faint); font-weight: 500; margin-top: 3px;
+  display: block;
+}
+.nav-divider { width: 1px; height: 36px; background: var(--rule); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--ink-light);
+  font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500;
+  transition: color 0.25s; position: relative; padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1px;
+  background: var(--gold); transform: scaleX(0); transition: transform 0.25s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  padding: 11px 28px;
+  background: var(--ink); color: var(--cream);
+  font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  text-decoration: none; transition: background 0.25s;
+}
+.nav-cta:hover { background: var(--gold); }
 
-  /* ─── NAVIGATION ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 0 60px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 80px;
-    background: rgba(8,8,8,0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(201,168,76,0.12);
-    transition: all 0.3s ease;
-  }
-  .nav-logo img {
-    height: 54px;
-    filter: drop-shadow(0 0 12px rgba(201,168,76,0.4));
-  }
-  .nav-links {
-    display: flex; gap: 36px; list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none; color: var(--grey-light);
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    font-weight: 500; transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    padding: 10px 28px;
-    border: 1px solid var(--gold);
-    color: var(--gold); font-size: 11px; letter-spacing: 2px;
-    text-transform: uppercase; font-weight: 600; cursor: pointer;
-    background: transparent; transition: all 0.3s;
-    text-decoration: none;
-  }
-  .nav-cta:hover {
-    background: var(--gold); color: var(--black);
-  }
+/* ══════════════════════════════════════════
+   HERO CAROUSEL
+══════════════════════════════════════════ */
+.hero {
+  position: relative; height: 100vh; min-height: 680px;
+  overflow: hidden; margin-top: 84px;
+}
+.carousel-track {
+  display: flex; width: 400%; height: 100%;
+  transition: transform 0.8s cubic-bezier(0.77,0,0.175,1);
+}
+.carousel-slide {
+  width: 25%; height: 100%; position: relative; flex-shrink: 0;
+}
+.slide-img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+}
+.slide-img::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(250,248,244,0.97) 0%,
+    rgba(250,248,244,0.88) 42%,
+    rgba(250,248,244,0.40) 72%,
+    rgba(250,248,244,0.08) 100%
+  );
+}
+/* Slide backgrounds */
+.slide-1 .slide-img { background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=85'); }
+.slide-2 .slide-img { background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1800&q=85'); }
+.slide-3 .slide-img { background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1800&q=85'); }
+.slide-4 .slide-img { background-image: url('https://images.unsplash.com/photo-1453945619913-79ec89a82c51?w=1800&q=85'); }
 
-  /* ─── HERO ─── */
-  .hero {
-    position: relative; height: 100vh; min-height: 700px;
-    display: flex; align-items: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(to right, rgba(8,8,8,0.97) 40%, rgba(8,8,8,0.5) 100%),
-      url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=85') center/cover no-repeat;
-  }
-  .hero-bg::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
-  }
-  .hero-content {
-    position: relative; z-index: 2;
-    padding: 0 60px; max-width: 780px;
-    padding-top: 80px;
-  }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 28px;
-  }
-  .hero-eyebrow span {
-    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold); font-weight: 500;
-  }
-  .eyebrow-line {
-    width: 48px; height: 1px; background: var(--gold);
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 6vw, 88px);
-    font-weight: 700; line-height: 1.08;
-    color: var(--off-white);
-    margin-bottom: 28px;
-  }
-  .hero h1 em {
-    font-style: italic; color: var(--gold);
-  }
-  .hero-sub {
-    font-size: 16px; line-height: 1.75;
-    color: rgba(245,240,232,0.65);
-    max-width: 520px; margin-bottom: 48px;
-    font-weight: 300;
-  }
-  .hero-actions {
-    display: flex; gap: 20px; align-items: center;
-  }
-  .btn-primary {
-    padding: 16px 40px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-    color: var(--black); font-size: 11px; letter-spacing: 2.5px;
-    text-transform: uppercase; font-weight: 700;
-    cursor: pointer; border: none; text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 8px 40px rgba(201,168,76,0.35);
-    transition: all 0.3s;
-  }
-  .btn-primary:hover {
-    box-shadow: 0 12px 60px rgba(201,168,76,0.55);
-    transform: translateY(-2px);
-  }
-  .btn-outline {
-    padding: 16px 40px;
-    border: 1px solid rgba(245,240,232,0.25);
-    color: var(--off-white); font-size: 11px; letter-spacing: 2.5px;
-    text-transform: uppercase; font-weight: 600;
-    cursor: pointer; background: transparent; text-decoration: none;
-    display: inline-block; transition: all 0.3s;
-  }
-  .btn-outline:hover {
-    border-color: var(--gold); color: var(--gold);
-  }
-  .hero-scroll {
-    position: absolute; bottom: 40px; left: 60px;
-    display: flex; align-items: center; gap: 14px;
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--grey); z-index: 2;
-  }
-  .scroll-line {
-    width: 40px; height: 1px; background: var(--grey);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-  @keyframes scrollPulse {
-    0%,100% { width: 40px; opacity: 0.4; }
-    50% { width: 60px; opacity: 1; }
-  }
+.slide-content {
+  position: relative; z-index: 2;
+  height: 100%; display: flex; flex-direction: column; justify-content: center;
+  padding: 0 72px; max-width: 720px;
+}
+.slide-tag {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-bottom: 28px;
+}
+.slide-tag-line { width: 40px; height: 1px; background: var(--gold); }
+.slide-tag span {
+  font-size: 10.5px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); font-weight: 600;
+}
+.slide-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 5.5vw, 82px);
+  font-weight: 700; line-height: 1.08; color: var(--ink);
+  margin-bottom: 24px;
+}
+.slide-content h1 em { font-style: italic; color: var(--gold); }
+.slide-content p {
+  font-size: 16px; line-height: 1.8; color: var(--ink-light);
+  max-width: 500px; font-weight: 300; margin-bottom: 44px;
+}
+.slide-actions { display: flex; gap: 16px; align-items: center; }
 
-  /* ─── GOLD DIVIDER ─── */
-  .gold-divider {
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 20%, var(--gold) 50%, var(--gold-dim) 80%, transparent 100%);
-    position: relative;
-  }
-  .gold-divider::after {
-    content: '◆';
-    position: absolute; left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--gold); font-size: 10px;
-    background: var(--black); padding: 0 12px;
-  }
+/* Carousel controls */
+.carousel-dots {
+  position: absolute; bottom: 40px; left: 72px;
+  display: flex; gap: 10px; z-index: 10;
+}
+.dot {
+  width: 28px; height: 2px; background: var(--ink-faint);
+  cursor: pointer; transition: all 0.3s;
+}
+.dot.active { background: var(--gold); width: 48px; }
+.carousel-arrows {
+  position: absolute; bottom: 30px; right: 72px;
+  display: flex; gap: 10px; z-index: 10;
+}
+.arrow-btn {
+  width: 48px; height: 48px; border: 1px solid var(--rule);
+  background: var(--white); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--ink); transition: all 0.25s;
+}
+.arrow-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+.carousel-progress {
+  position: absolute; bottom: 0; left: 0;
+  height: 2px; background: var(--gold);
+  transition: width 0.1s linear;
+  z-index: 10;
+}
 
-  /* ─── STATS BAR ─── */
-  .stats-bar {
-    background: var(--deep);
-    border-top: 1px solid rgba(201,168,76,0.1);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-    padding: 50px 60px;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-  .stat-item {
-    text-align: center; padding: 0 20px;
-    border-right: 1px solid rgba(201,168,76,0.12);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px; font-weight: 700;
-    color: var(--gold); line-height: 1;
-    display: block; margin-bottom: 10px;
-  }
-  .stat-label {
-    font-size: 11px; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--grey);
-    font-weight: 500;
-  }
+/* ══════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════ */
+.btn-dark {
+  padding: 15px 38px; background: var(--ink); color: var(--cream);
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600;
+  text-decoration: none; display: inline-block; border: none; cursor: pointer;
+  transition: background 0.25s;
+}
+.btn-dark:hover { background: var(--gold); }
+.btn-gold-outline {
+  padding: 15px 38px; border: 1.5px solid var(--gold);
+  color: var(--gold); font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 600;
+  text-decoration: none; display: inline-block; background: transparent;
+  cursor: pointer; transition: all 0.25s;
+}
+.btn-gold-outline:hover { background: var(--gold); color: var(--white); }
+.btn-gold {
+  padding: 15px 38px;
+  background: var(--gold); color: var(--white);
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600;
+  text-decoration: none; display: inline-block; border: none; cursor: pointer;
+  transition: background 0.25s;
+}
+.btn-gold:hover { background: var(--ink); }
 
-  /* ─── SECTION BASE ─── */
-  section { padding: 100px 60px; }
-  .section-eyebrow {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 20px;
-  }
-  .section-eyebrow span {
-    font-size: 11px; letter-spacing: 4px;
-    text-transform: uppercase; color: var(--gold); font-weight: 500;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 700; color: var(--off-white);
-    line-height: 1.15; margin-bottom: 20px;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-  .section-body {
-    font-size: 16px; line-height: 1.8;
-    color: rgba(245,240,232,0.6); font-weight: 300;
-  }
+/* ══════════════════════════════════════════
+   SERVICES STRIP
+══════════════════════════════════════════ */
+.services-strip {
+  background: var(--ink);
+  display: grid; grid-template-columns: repeat(5, 1fr);
+}
+.strip-item {
+  padding: 28px 28px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; gap: 14px;
+  transition: background 0.25s; cursor: default;
+}
+.strip-item:last-child { border-right: none; }
+.strip-item:hover { background: rgba(184,146,42,0.12); }
+.strip-icon-wrap {
+  width: 38px; height: 38px; background: rgba(184,146,42,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.strip-label strong { display: block; font-size: 12px; font-weight: 600; color: #F0EAE0; margin-bottom: 2px; }
+.strip-label span { font-size: 10.5px; color: rgba(255,255,255,0.38); letter-spacing: 0.3px; }
 
-  /* ─── ABOUT ─── */
-  .about-section {
-    background: var(--charcoal);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
-  }
-  .about-images {
-    position: relative; height: 560px;
-  }
-  .about-img-main {
-    position: absolute; left: 0; top: 0;
-    width: 75%; height: 85%;
-    object-fit: cover;
-    border: 1px solid rgba(201,168,76,0.2);
-  }
-  .about-img-accent {
-    position: absolute; right: 0; bottom: 0;
-    width: 55%; height: 55%;
-    object-fit: cover;
-    border: 1px solid rgba(201,168,76,0.3);
-    box-shadow: -8px -8px 0 var(--gold-dim);
-  }
-  .about-badge {
-    position: absolute; left: 0; bottom: 20px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: var(--black); padding: 20px 28px;
-    text-align: center; z-index: 2;
-  }
-  .about-badge strong {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px; display: block; font-weight: 700;
-  }
-  .about-badge span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-  .about-text .section-body { margin-bottom: 32px; }
-  .about-features {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    margin-top: 32px;
-  }
-  .feature-item {
-    display: flex; align-items: flex-start; gap: 12px;
-    padding: 16px;
-    border: 1px solid rgba(201,168,76,0.1);
-    background: rgba(201,168,76,0.03);
-    transition: all 0.3s;
-  }
-  .feature-item:hover {
-    border-color: rgba(201,168,76,0.3);
-    background: rgba(201,168,76,0.06);
-  }
-  .feature-icon { color: var(--gold); font-size: 18px; margin-top: 2px; flex-shrink: 0; }
-  .feature-text strong {
-    display: block; font-size: 13px; font-weight: 600;
-    color: var(--off-white); margin-bottom: 4px;
-    letter-spacing: 0.5px;
-  }
-  .feature-text span { font-size: 12px; color: var(--grey); line-height: 1.5; }
+/* ══════════════════════════════════════════
+   STATS
+══════════════════════════════════════════ */
+.stats-section {
+  background: var(--white); padding: 0 64px;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid var(--rule);
+}
+.stat-item {
+  padding: 52px 0; text-align: center;
+  border-right: 1px solid var(--rule);
+  transition: background 0.25s;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: rgba(184,146,42,0.03); }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px; font-weight: 700; color: var(--gold);
+  display: block; line-height: 1; margin-bottom: 10px;
+}
+.stat-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--ink-faint); font-weight: 500;
+}
+.stat-desc {
+  font-size: 12px; color: var(--ink-light); margin-top: 6px;
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+}
 
-  /* ─── PRACTICE AREAS ─── */
-  .practice-section {
-    background: var(--black);
-  }
-  .practice-header {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-    align-items: end; margin-bottom: 64px;
-  }
-  .practice-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-  }
-  .practice-card {
-    position: relative; overflow: hidden;
-    height: 320px; cursor: pointer;
-    group: true;
-  }
-  .practice-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s ease;
-    filter: brightness(0.5) saturate(0.7);
-  }
-  .practice-card:hover img {
-    transform: scale(1.08);
-    filter: brightness(0.35) saturate(0.5);
-  }
-  .practice-card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.3) 60%, transparent 100%);
-    display: flex; flex-direction: column;
-    justify-content: flex-end; padding: 32px;
-    transition: all 0.4s;
-  }
-  .practice-card:hover .practice-card-overlay {
-    background: linear-gradient(to top, rgba(8,8,8,0.98) 0%, rgba(8,8,8,0.7) 100%);
-  }
-  .practice-card-icon {
-    font-size: 28px; color: var(--gold);
-    margin-bottom: 12px;
-    transform: translateY(10px); opacity: 0;
-    transition: all 0.4s;
-  }
-  .practice-card:hover .practice-card-icon {
-    transform: translateY(0); opacity: 1;
-  }
-  .practice-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px; font-weight: 600;
-    color: var(--off-white); margin-bottom: 10px;
-  }
-  .practice-card p {
-    font-size: 13px; color: rgba(245,240,232,0.6);
-    line-height: 1.6;
-    transform: translateY(8px); opacity: 0;
-    transition: all 0.4s 0.05s;
-    max-height: 0; overflow: hidden;
-  }
-  .practice-card:hover p {
-    transform: translateY(0); opacity: 1; max-height: 80px;
-  }
-  .practice-card-link {
-    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--gold); font-weight: 600; margin-top: 14px;
-    opacity: 0; transform: translateY(5px);
-    transition: all 0.4s 0.1s; display: block;
-  }
-  .practice-card:hover .practice-card-link { opacity: 1; transform: translateY(0); }
+/* ══════════════════════════════════════════
+   SECTION UTILITIES
+══════════════════════════════════════════ */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.section-tag-line { width: 36px; height: 1px; background: var(--gold); }
+.section-tag span {
+  font-size: 10.5px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); font-weight: 600;
+}
+.section-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.6vw, 50px);
+  font-weight: 700; color: var(--ink); line-height: 1.14; margin-bottom: 18px;
+}
+.section-h2 em { font-style: italic; color: var(--gold); }
+.section-body {
+  font-size: 15.5px; line-height: 1.82; color: var(--ink-light); font-weight: 300;
+}
+.gold-rule {
+  border: none; border-top: 1px solid var(--rule); margin: 0;
+}
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
 
-  /* ─── WHY US ─── */
-  .why-section {
-    background: var(--deep);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
-  }
-  .why-image-wrap {
-    position: relative; height: 600px;
-  }
-  .why-img {
-    width: 100%; height: 100%; object-fit: cover;
-    border: 1px solid rgba(201,168,76,0.15);
-  }
-  .why-corner {
-    position: absolute; top: -20px; left: -20px;
-    width: 120px; height: 120px;
-    border-top: 2px solid var(--gold);
-    border-left: 2px solid var(--gold);
-    pointer-events: none;
-  }
-  .why-corner-br {
-    position: absolute; bottom: -20px; right: -20px;
-    width: 120px; height: 120px;
-    border-bottom: 2px solid var(--gold);
-    border-right: 2px solid var(--gold);
-    pointer-events: none;
-  }
-  .why-points { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
-  .why-point {
-    display: flex; gap: 24px; padding: 28px 0;
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-    align-items: flex-start; transition: all 0.3s;
-  }
-  .why-point:last-child { border-bottom: none; }
-  .why-point:hover { padding-left: 12px; }
-  .why-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px; font-weight: 700;
-    color: rgba(201,168,76,0.2); line-height: 1;
-    flex-shrink: 0; width: 50px;
-    transition: color 0.3s;
-  }
-  .why-point:hover .why-num { color: var(--gold); }
-  .why-point-body h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px; font-weight: 600; color: var(--off-white);
-    margin-bottom: 8px;
-  }
-  .why-point-body p {
-    font-size: 13px; line-height: 1.7; color: rgba(245,240,232,0.55);
-  }
+/* ══════════════════════════════════════════
+   ABOUT
+══════════════════════════════════════════ */
+.about-section {
+  background: var(--cream); padding: 104px 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center;
+}
+.about-images { position: relative; height: 580px; }
+.about-img-main {
+  position: absolute; left: 0; top: 0;
+  width: 72%; height: 82%; object-fit: cover;
+  border: 1px solid var(--gold-border);
+}
+.about-img-secondary {
+  position: absolute; right: 0; bottom: 0;
+  width: 50%; height: 50%; object-fit: cover;
+  border: 1px solid var(--gold-border);
+  outline: 6px solid var(--cream); outline-offset: -3px;
+  box-shadow: 0 0 0 1px var(--gold-border);
+}
+.about-badge {
+  position: absolute; left: 0; bottom: 0;
+  background: var(--gold); color: var(--white);
+  padding: 22px 26px; text-align: center; z-index: 2;
+}
+.about-badge strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px; display: block; font-weight: 700; line-height: 1;
+}
+.about-badge span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; display: block; margin-top: 4px; }
+.about-text .section-body { margin-bottom: 28px; }
+.about-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule);
+  margin: 32px 0;
+}
+.feat-item {
+  background: var(--white); padding: 20px 22px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.feat-icon {
+  width: 32px; height: 32px; background: var(--cream);
+  border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.feat-body strong { display: block; font-size: 12.5px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.feat-body span { font-size: 11.5px; color: var(--ink-faint); line-height: 1.5; }
 
-  /* ─── TESTIMONIALS ─── */
-  .testimonials-section {
-    background: var(--charcoal);
-    text-align: center;
-  }
-  .testimonials-section .section-eyebrow { justify-content: center; }
-  .testimonials-section .section-title { text-align: center; }
-  .testimonials-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; margin-top: 60px;
-  }
-  .testimonial-card {
-    background: var(--deep); padding: 40px 32px;
-    border: 1px solid rgba(201,168,76,0.1);
-    text-align: left; position: relative;
-    transition: all 0.3s;
-  }
-  .testimonial-card:hover {
-    border-color: rgba(201,168,76,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .testimonial-quote {
-    font-size: 56px; line-height: 0.6;
-    color: var(--gold); font-family: 'Playfair Display', serif;
-    font-weight: 900; margin-bottom: 20px; display: block;
-  }
-  .testimonial-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px; line-height: 1.8;
-    color: rgba(245,240,232,0.8); font-style: italic;
-    margin-bottom: 28px;
-  }
-  .testimonial-stars { color: var(--gold); font-size: 13px; margin-bottom: 16px; }
-  .testimonial-author { display: flex; align-items: center; gap: 14px; }
-  .author-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%; object-fit: cover;
-    border: 2px solid rgba(201,168,76,0.3);
-  }
-  .author-name {
-    display: block; font-weight: 600; font-size: 14px;
-    color: var(--off-white); margin-bottom: 2px;
-  }
-  .author-info { font-size: 11px; color: var(--grey); letter-spacing: 1px; }
+/* ══════════════════════════════════════════
+   PRACTICE AREAS
+══════════════════════════════════════════ */
+.practice-section { background: var(--white); padding: 104px 64px; }
+.practice-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: end; margin-bottom: 60px;
+}
+.practice-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.practice-card {
+  position: relative; overflow: hidden; height: 300px; cursor: pointer; background: var(--cream-dark);
+}
+.practice-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.55s ease; filter: brightness(0.72) saturate(0.8);
+}
+.practice-card:hover img { transform: scale(1.06); filter: brightness(0.45) saturate(0.6); }
+.practice-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,23,16,0.92) 0%, rgba(26,23,16,0.25) 55%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
+}
+.practice-card:hover .practice-overlay {
+  background: linear-gradient(to top, rgba(26,23,16,0.97) 0%, rgba(26,23,16,0.65) 100%);
+}
+.practice-card-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+.practice-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 600; color: #F5F0E8; margin-bottom: 0;
+}
+.practice-card p {
+  font-size: 12.5px; color: rgba(245,240,232,0.62); line-height: 1.65; margin-top: 8px;
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s;
+  opacity: 0;
+}
+.practice-card:hover p { max-height: 70px; opacity: 1; }
+.practice-card-arrow {
+  font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 600; margin-top: 12px; display: block;
+  opacity: 0; transition: opacity 0.35s;
+}
+.practice-card:hover .practice-card-arrow { opacity: 1; }
 
-  /* ─── CONTACT BAND ─── */
-  .contact-band {
-    position: relative; overflow: hidden;
-    padding: 90px 60px;
-    background: var(--black);
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 40px;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-  }
-  .contact-band::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 50% 100% at 0% 50%, rgba(201,168,76,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 80% at 100% 50%, rgba(201,168,76,0.03) 0%, transparent 60%);
-  }
-  .contact-text { position: relative; z-index: 1; }
-  .contact-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 3.5vw, 48px);
-    font-weight: 700; color: var(--off-white);
-    margin-bottom: 12px;
-  }
-  .contact-text h2 em { font-style: italic; color: var(--gold); }
-  .contact-text p { font-size: 15px; color: rgba(245,240,232,0.55); }
-  .contact-actions { display: flex; gap: 16px; flex-shrink: 0; position: relative; z-index: 1; }
+/* ══════════════════════════════════════════
+   WHY SECTION
+══════════════════════════════════════════ */
+.why-section {
+  background: var(--cream-dark); padding: 104px 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center;
+}
+.why-image-wrap { position: relative; height: 580px; }
+.why-img { width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--gold-border); }
+.corner-mark {
+  position: absolute; width: 60px; height: 60px;
+  pointer-events: none;
+}
+.corner-mark.tl { top: -16px; left: -16px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.corner-mark.br { bottom: -16px; right: -16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+.why-points { display: flex; flex-direction: column; }
+.why-point {
+  display: flex; gap: 24px; padding: 26px 0;
+  border-bottom: 1px solid var(--rule); align-items: flex-start;
+  transition: padding-left 0.25s;
+}
+.why-point:first-child { padding-top: 0; }
+.why-point:last-child { border-bottom: none; }
+.why-point:hover { padding-left: 8px; }
+.why-num {
+  font-family: 'Playfair Display', serif; font-size: 32px;
+  font-weight: 700; color: var(--gold-pale); line-height: 1; flex-shrink: 0; width: 44px;
+  transition: color 0.25s;
+}
+.why-point:hover .why-num { color: var(--gold); }
+.why-point h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+.why-point p { font-size: 13px; line-height: 1.75; color: var(--ink-light); }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: #050505;
-    padding: 70px 60px 40px;
-    border-top: 1px solid rgba(201,168,76,0.08);
-  }
-  .footer-grid {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px; margin-bottom: 60px;
-  }
-  .footer-brand img { height: 56px; margin-bottom: 20px; filter: drop-shadow(0 0 8px rgba(201,168,76,0.3)); }
-  .footer-brand p { font-size: 13px; line-height: 1.8; color: rgba(245,240,232,0.45); }
-  .footer-col h4 {
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 600; margin-bottom: 22px;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .footer-col a {
-    text-decoration: none; font-size: 13px;
-    color: rgba(245,240,232,0.5); transition: color 0.3s;
-    display: block;
-  }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom {
-    padding-top: 32px; border-top: 1px solid rgba(201,168,76,0.08);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 11px; color: rgba(245,240,232,0.3);
-    letter-spacing: 0.5px;
-  }
-  .footer-bottom span { color: var(--gold-dim); }
+/* ══════════════════════════════════════════
+   PROCESS / HOW WE WORK
+══════════════════════════════════════════ */
+.process-section { background: var(--ink); padding: 104px 64px; }
+.process-section .section-h2 { color: #F5F0E8; }
+.process-section .section-body { color: rgba(245,240,232,0.55); }
+.process-section .section-tag span { color: var(--gold-light); }
+.process-section .section-tag-line { background: var(--gold-light); }
+.process-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
+  margin-top: 56px;
+}
+.process-card {
+  background: rgba(255,255,255,0.03); padding: 40px 32px;
+  border-right: none; position: relative;
+  transition: background 0.25s;
+}
+.process-card:hover { background: rgba(184,146,42,0.07); }
+.process-step {
+  font-family: 'Playfair Display', serif; font-size: 64px;
+  font-weight: 700; color: rgba(184,146,42,0.15); line-height: 1;
+  margin-bottom: 20px; display: block;
+}
+.process-card h4 {
+  font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600;
+  color: #F0EAE0; margin-bottom: 12px;
+}
+.process-card p { font-size: 13px; line-height: 1.75; color: rgba(245,240,232,0.5); }
+.process-icon { font-size: 26px; display: block; margin-bottom: 16px; }
 
-  /* ─── SERVICES STRIP ─── */
-  .services-strip {
-    background: linear-gradient(135deg, #0D0A02 0%, #0F0B03 100%);
-    border-top: 1px solid rgba(201,168,76,0.15);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    padding: 0 60px;
-    display: flex;
-    overflow: hidden;
-  }
-  .strip-item {
-    flex: 1; padding: 32px 0;
-    display: flex; align-items: center; gap: 16px;
-    border-right: 1px solid rgba(201,168,76,0.1);
-    padding-left: 32px; justify-content: flex-start;
-    transition: background 0.3s;
-  }
-  .strip-item:last-child { border-right: none; }
-  .strip-item:hover { background: rgba(201,168,76,0.04); }
-  .strip-icon { font-size: 22px; color: var(--gold); flex-shrink: 0; }
-  .strip-item-text strong {
-    display: block; font-size: 13px; font-weight: 600;
-    color: var(--off-white); margin-bottom: 2px;
-  }
-  .strip-item-text span { font-size: 11px; color: var(--grey); }
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testimonials-section { background: var(--white); padding: 104px 64px; }
+.testimonials-header { text-align: center; margin-bottom: 64px; }
+.testimonials-header .section-tag { justify-content: center; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.testimonial-card {
+  background: var(--cream); padding: 40px 36px;
+  border: 1px solid var(--rule); position: relative;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.testimonial-card:hover { border-color: var(--gold); box-shadow: 0 8px 40px rgba(184,146,42,0.08); }
+.t-quote-mark {
+  font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900;
+  color: var(--gold-pale); line-height: 0.7; display: block; margin-bottom: 20px;
+}
+.t-text {
+  font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic;
+  line-height: 1.82; color: var(--ink-mid); margin-bottom: 28px;
+}
+.t-stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; margin-bottom: 20px; }
+.t-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 20px; }
+.t-author { display: flex; align-items: center; gap: 14px; }
+.t-avatar {
+  width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--gold-border);
+}
+.t-name { font-size: 13.5px; font-weight: 600; color: var(--ink); display: block; }
+.t-role { font-size: 11px; color: var(--ink-faint); letter-spacing: 0.5px; }
 
-  /* Scroll animations */
-  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+/* ══════════════════════════════════════════
+   CTA BAND
+══════════════════════════════════════════ */
+.cta-section {
+  background: var(--gold); padding: 80px 64px;
+  display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700; color: var(--white); line-height: 1.2;
+}
+.cta-section h2 em { font-style: italic; opacity: 0.85; }
+.cta-section p { font-size: 15px; color: rgba(255,255,255,0.75); margin-top: 10px; }
+.cta-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+.btn-white {
+  padding: 15px 38px; background: var(--white); color: var(--gold);
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700;
+  text-decoration: none; display: inline-block; cursor: pointer; border: none;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-white:hover { background: var(--ink); color: var(--white); }
+.btn-white-outline {
+  padding: 15px 38px; border: 1.5px solid rgba(255,255,255,0.55);
+  color: var(--white); font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 600;
+  text-decoration: none; display: inline-block; background: transparent;
+  cursor: pointer; transition: all 0.25s;
+}
+.btn-white-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
+.cta-phone { font-size: 13px; color: rgba(255,255,255,0.7); font-style: italic; }
 
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    nav .nav-links { display: none; }
-    section { padding: 70px 24px; }
-    .hero-content { padding: 0 24px; padding-top: 80px; }
-    .hero-scroll { left: 24px; }
-    .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 40px 24px; }
-    .stat-item { border-right: none; }
-    .about-section, .why-section { grid-template-columns: 1fr; }
-    .about-images { height: 360px; }
-    .practice-grid { grid-template-columns: 1fr; }
-    .practice-header { grid-template-columns: 1fr; gap: 20px; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .contact-band { flex-direction: column; text-align: center; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-    .services-strip { flex-direction: column; padding: 0 24px; }
-    .strip-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
-  }
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer {
+  background: var(--ink); padding: 80px 64px 0;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px;
+  padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.footer-brand-name {
+  font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+  color: #F0EAE0; margin-bottom: 6px;
+}
+.footer-brand-name span { color: var(--gold-light); font-style: italic; }
+.footer-brand-tag {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 20px; display: block;
+}
+.footer-brand p { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.38); }
+.footer-col-head {
+  font-size: 9.5px; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 600; margin-bottom: 22px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-col a {
+  text-decoration: none; font-size: 13px; color: rgba(255,255,255,0.42);
+  transition: color 0.25s;
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom {
+  padding: 28px 0; display: flex;
+  justify-content: space-between; align-items: center;
+  font-size: 11px; color: rgba(255,255,255,0.22);
+}
+.footer-bottom a { color: inherit; text-decoration: none; transition: color 0.25s; }
+.footer-bottom a:hover { color: var(--gold-light); }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { margin-top: 84px; }
+  .slide-content { padding: 0 28px; }
+  .services-strip { grid-template-columns: 1fr 1fr; }
+  .stats-section { grid-template-columns: 1fr 1fr; padding: 0 24px; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--rule); }
+  .about-section, .why-section { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+  .about-images { height: 340px; }
+  .practice-section, .testimonials-section, .process-section { padding: 64px 24px; }
+  .practice-header { grid-template-columns: 1fr; gap: 24px; }
+  .practice-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .cta-section { grid-template-columns: 1fr; padding: 56px 24px; }
+  .cta-actions { align-items: flex-start; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; padding: 48px 0; }
+  footer { padding: 48px 24px 0; }
+  .carousel-dots { left: 28px; }
+  .carousel-arrows { right: 28px; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-logo">
-    <img src="https://i.ibb.co/placeholder/logo.png" alt="Gandotra & Associates"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-    <div style="display:none; font-family:'Playfair Display',serif; color:var(--gold); font-size:22px; font-weight:700; letter-spacing:1px;">
-      G<span style="font-style:italic">A</span>
-      <span style="font-size:11px; letter-spacing:3px; font-weight:400; color:var(--off-white); display:block; font-family:'Inter',sans-serif; margin-top:-4px;">GANDOTRA & ASSOCIATES</span>
+<!-- ══ NAVIGATION ══ -->
+<nav id="site-nav">
+  <div class="nav-brand">
+    <div>
+      <div class="nav-logo-text">Gandotra <span>&</span> Associates</div>
+      <span class="nav-logo-sub">Litigation · Consultation · Compliances</span>
     </div>
   </div>
+  <div class="nav-divider"></div>
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
@@ -571,354 +572,444 @@
     <li><a href="#">Blog</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Free Consultation</a>
+  <a href="#cta" class="nav-cta">Free Consultation</a>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-line"></div>
-      <span>Established Excellence in Law</span>
+<!-- ══ HERO CAROUSEL ══ -->
+<div class="hero" id="hero">
+  <div class="carousel-track" id="carouselTrack">
+
+    <!-- Slide 1 -->
+    <div class="carousel-slide slide-1">
+      <div class="slide-img"></div>
+      <div class="slide-content">
+        <div class="slide-tag">
+          <div class="slide-tag-line"></div>
+          <span>Premier Litigation Firm</span>
+        </div>
+        <h1>Justice Delivered<br>with <em>Precision.</em></h1>
+        <p>Decades of distinguished legal expertise protecting your rights across every court in India and beyond.</p>
+        <div class="slide-actions">
+          <a href="#cta" class="btn-dark">Schedule Consultation</a>
+          <a href="#practice" class="btn-gold-outline">Practice Areas</a>
+        </div>
+      </div>
     </div>
-    <h1>Justice<br>Delivered with<br><em>Precision.</em></h1>
-    <p class="hero-sub">
-      Gandotra & Associates brings decades of distinguished legal expertise across litigation, corporate compliance, and advisory services — protecting your rights with unwavering integrity.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Schedule Consultation</a>
-      <a href="#practice" class="btn-outline">Our Practice Areas</a>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide slide-2">
+      <div class="slide-img"></div>
+      <div class="slide-content">
+        <div class="slide-tag">
+          <div class="slide-tag-line"></div>
+          <span>Trusted Since 2006</span>
+        </div>
+        <h1>Your Trusted<br><em>Legal Partner.</em></h1>
+        <p>Over 2,500 cases resolved. A team of distinguished advocates committed to achieving the best outcome for every client.</p>
+        <div class="slide-actions">
+          <a href="#about" class="btn-dark">Discover Our Firm</a>
+          <a href="#cta" class="btn-gold-outline">Book a Call</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide slide-3">
+      <div class="slide-img"></div>
+      <div class="slide-content">
+        <div class="slide-tag">
+          <div class="slide-tag-line"></div>
+          <span>Criminal & Civil Law</span>
+        </div>
+        <h1>Fighting for<br>Your <em>Rights.</em></h1>
+        <p>Aggressive and strategic legal defence from the first hearing through every stage of appeal — your freedom, our mission.</p>
+        <div class="slide-actions">
+          <a href="#practice" class="btn-dark">Explore Our Work</a>
+          <a href="#cta" class="btn-gold-outline">Get Legal Help</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-slide slide-4">
+      <div class="slide-img"></div>
+      <div class="slide-content">
+        <div class="slide-tag">
+          <div class="slide-tag-line"></div>
+          <span>NRI Legal Services</span>
+        </div>
+        <h1>Serving India's<br><em>Global</em> Diaspora.</h1>
+        <p>Specialised legal support for NRIs across 30+ countries — from property management to immigration and citizenship matters.</p>
+        <div class="slide-actions">
+          <a href="#cta" class="btn-dark">Talk to an Advocate</a>
+          <a href="#practice" class="btn-gold-outline">NRI Services</a>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll to explore</span>
+
+  <!-- Dots -->
+  <div class="carousel-dots" id="carouselDots">
+    <div class="dot active" data-index="0"></div>
+    <div class="dot" data-index="1"></div>
+    <div class="dot" data-index="2"></div>
+    <div class="dot" data-index="3"></div>
   </div>
+
+  <!-- Arrows -->
+  <div class="carousel-arrows">
+    <button class="arrow-btn" id="prevBtn">&#8592;</button>
+    <button class="arrow-btn" id="nextBtn">&#8594;</button>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="carousel-progress" id="carouselProgress"></div>
 </div>
 
-<!-- SERVICES STRIP -->
+<!-- ══ SERVICES STRIP ══ -->
 <div class="services-strip">
   <div class="strip-item">
-    <div class="strip-icon">⚖️</div>
-    <div class="strip-item-text">
-      <strong>Litigation</strong>
-      <span>Trial & appellate courts</span>
-    </div>
+    <div class="strip-icon-wrap">⚖️</div>
+    <div class="strip-label"><strong>Litigation</strong><span>Trial & appellate courts</span></div>
   </div>
   <div class="strip-item">
-    <div class="strip-icon">📋</div>
-    <div class="strip-item-text">
-      <strong>Consultation</strong>
-      <span>Expert legal advisory</span>
-    </div>
+    <div class="strip-icon-wrap">📋</div>
+    <div class="strip-label"><strong>Consultation</strong><span>Expert legal advisory</span></div>
   </div>
   <div class="strip-item">
-    <div class="strip-icon">🏛️</div>
-    <div class="strip-item-text">
-      <strong>Compliances</strong>
-      <span>Corporate & regulatory</span>
-    </div>
+    <div class="strip-icon-wrap">🏛️</div>
+    <div class="strip-label"><strong>Compliances</strong><span>Corporate & regulatory</span></div>
   </div>
   <div class="strip-item">
-    <div class="strip-icon">🌍</div>
-    <div class="strip-item-text">
-      <strong>NRI Services</strong>
-      <span>International legal support</span>
-    </div>
+    <div class="strip-icon-wrap">🌍</div>
+    <div class="strip-label"><strong>NRI Services</strong><span>International legal support</span></div>
   </div>
   <div class="strip-item">
-    <div class="strip-icon">🏠</div>
-    <div class="strip-item-text">
-      <strong>Property Law</strong>
-      <span>Real estate & disputes</span>
-    </div>
+    <div class="strip-icon-wrap">🏠</div>
+    <div class="strip-label"><strong>Property Law</strong><span>Real estate & disputes</span></div>
   </div>
 </div>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
+<!-- ══ STATS ══ -->
+<div class="stats-section">
   <div class="stat-item reveal">
     <span class="stat-number">2500+</span>
     <span class="stat-label">Cases Resolved</span>
+    <div class="stat-desc">Across all courts of India</div>
   </div>
   <div class="stat-item reveal">
     <span class="stat-number">18+</span>
-    <span class="stat-label">Years of Practice</span>
+    <span class="stat-label">Years in Practice</span>
+    <div class="stat-desc">Established excellence since 2006</div>
   </div>
   <div class="stat-item reveal">
     <span class="stat-number">30+</span>
     <span class="stat-label">Countries Served</span>
+    <div class="stat-desc">Global NRI client network</div>
   </div>
   <div class="stat-item reveal">
     <span class="stat-number">98%</span>
     <span class="stat-label">Client Satisfaction</span>
+    <div class="stat-desc">Consistently rated excellent</div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section class="about-section">
+<!-- ══ ABOUT ══ -->
+<section class="about-section" id="about">
   <div class="about-images reveal">
     <img class="about-img-main"
-         src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=85"
-         alt="Law firm interior" />
-    <img class="about-img-accent"
+         src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=900&q=85"
+         alt="Firm library" />
+    <img class="about-img-secondary"
          src="https://images.unsplash.com/photo-1664575262619-b28fef7a40a4?w=600&q=85"
          alt="Legal counsel" />
     <div class="about-badge">
       <strong>18+</strong>
-      <span>Years of<br>Excellence</span>
+      <span>Years of Excellence</span>
     </div>
   </div>
   <div class="about-text reveal">
-    <div class="section-eyebrow">
-      <div class="eyebrow-line"></div>
+    <div class="section-tag">
+      <div class="section-tag-line"></div>
       <span>Who We Are</span>
     </div>
-    <h2 class="section-title">A Firm Built on <em>Integrity</em> & Results</h2>
+    <h2 class="section-h2">A Firm Built on<br><em>Integrity</em> & Results</h2>
     <p class="section-body">
       Gandotra & Associates is a premier full-service law firm headquartered in New Delhi, dedicated to delivering exceptional legal representation to clients across India and internationally. Since our founding, we have built a reputation for combining rigorous legal scholarship with strategic, results-driven advocacy.
     </p>
-    <p class="section-body">
-      Our team of distinguished advocates operates across district courts, the High Court, and the Supreme Court — ensuring every client receives the calibre of representation they deserve.
+    <p class="section-body" style="margin-top:14px;">
+      Our team of distinguished advocates operates across district courts, the High Court, and the Supreme Court of India — ensuring every client receives the calibre of representation they deserve.
     </p>
     <div class="about-features">
-      <div class="feature-item">
-        <div class="feature-icon">✦</div>
-        <div class="feature-text">
-          <strong>Supreme Court Practice</strong>
-          <span>Experienced before India's highest judicial authority</span>
-        </div>
+      <div class="feat-item">
+        <div class="feat-icon">⚖️</div>
+        <div class="feat-body"><strong>Supreme Court Practice</strong><span>Before India's highest judicial authority</span></div>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon">✦</div>
-        <div class="feature-text">
-          <strong>NRI Specialists</strong>
-          <span>Dedicated support for the Indian diaspora globally</span>
-        </div>
+      <div class="feat-item">
+        <div class="feat-icon">🌍</div>
+        <div class="feat-body"><strong>NRI Specialists</strong><span>Dedicated support for the global diaspora</span></div>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon">✦</div>
-        <div class="feature-text">
-          <strong>Confidential & Discreet</strong>
-          <span>Your matters handled with absolute privacy</span>
-        </div>
+      <div class="feat-item">
+        <div class="feat-icon">🔒</div>
+        <div class="feat-body"><strong>Confidential & Discreet</strong><span>Absolute client privacy guaranteed</span></div>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon">✦</div>
-        <div class="feature-text">
-          <strong>Multilingual Team</strong>
-          <span>Serving clients in multiple languages</span>
-        </div>
+      <div class="feat-item">
+        <div class="feat-icon">💬</div>
+        <div class="feat-body"><strong>Multilingual Team</strong><span>Serving clients in multiple languages</span></div>
       </div>
     </div>
-    <br>
-    <a href="#" class="btn-primary" style="margin-top:8px;">Discover Our Story</a>
+    <a href="#" class="btn-dark">Discover Our Story</a>
   </div>
 </section>
 
-<div class="gold-divider"></div>
+<hr class="gold-rule">
 
-<!-- PRACTICE AREAS -->
+<!-- ══ PRACTICE AREAS ══ -->
 <section class="practice-section" id="practice">
   <div class="practice-header">
     <div class="reveal">
-      <div class="section-eyebrow">
-        <div class="eyebrow-line"></div>
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
         <span>What We Do</span>
       </div>
-      <h2 class="section-title">Areas of<br><em>Legal Practice</em></h2>
+      <h2 class="section-h2">Areas of<br><em>Legal Practice</em></h2>
     </div>
     <div class="reveal">
       <p class="section-body">
-        Our firm's practice spans the full spectrum of civil, criminal, and corporate law — with specialists in each domain committed to achieving the best outcome for every client we represent.
+        Our practice spans the full spectrum of civil, criminal, and corporate law — with specialists in each domain committed to achieving the best outcome for every client we serve.
       </p>
       <br>
-      <a href="#" class="btn-outline" style="margin-top:16px; display:inline-block;">View All Practice Areas</a>
+      <a href="#" class="btn-gold-outline" style="margin-top:8px;">View All Practice Areas</a>
     </div>
   </div>
-
   <div class="practice-grid">
     <div class="practice-card">
-      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=600&q=80" alt="Corporate Law" />
-      <div class="practice-card-overlay">
-        <div class="practice-card-icon">🏢</div>
+      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=700&q=80" alt="Corporate Law" />
+      <div class="practice-overlay">
+        <span class="practice-card-icon">🏢</span>
         <h3>Corporate & Business Law</h3>
-        <p>Comprehensive legal support for incorporations, mergers, contracts, disputes, and ongoing compliance needs.</p>
-        <span class="practice-card-link">Explore Practice →</span>
+        <p>Incorporations, mergers, contracts, commercial disputes, and ongoing regulatory compliance.</p>
+        <span class="practice-card-arrow">Explore Practice →</span>
       </div>
     </div>
     <div class="practice-card">
-      <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?w=600&q=80" alt="Family Law" />
-      <div class="practice-card-overlay">
-        <div class="practice-card-icon">👨‍👩‍👧</div>
+      <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?w=700&q=80" alt="Family Law" />
+      <div class="practice-overlay">
+        <span class="practice-card-icon">👨‍👩‍👧</span>
         <h3>Family & Matrimonial Law</h3>
-        <p>Sensitive, compassionate representation in divorce, child custody, maintenance, and matrimonial disputes.</p>
-        <span class="practice-card-link">Explore Practice →</span>
+        <p>Divorce, child custody, maintenance, and matrimonial disputes handled with sensitivity.</p>
+        <span class="practice-card-arrow">Explore Practice →</span>
       </div>
     </div>
     <div class="practice-card">
-      <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&q=80" alt="Criminal Law" />
-      <div class="practice-card-overlay">
-        <div class="practice-card-icon">🛡️</div>
+      <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=700&q=80" alt="Criminal Law" />
+      <div class="practice-overlay">
+        <span class="practice-card-icon">🛡️</span>
         <h3>Criminal Defence</h3>
-        <p>Aggressive, strategic defence from FIR stage through trial and appeal — protecting your freedom and reputation.</p>
-        <span class="practice-card-link">Explore Practice →</span>
+        <p>Strategic defence from FIR through trial and appeal — protecting your freedom and reputation.</p>
+        <span class="practice-card-arrow">Explore Practice →</span>
       </div>
     </div>
     <div class="practice-card">
-      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=600&q=80" alt="Property Law" />
-      <div class="practice-card-overlay">
-        <div class="practice-card-icon">🏠</div>
+      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=700&q=80" alt="Property Law" />
+      <div class="practice-overlay">
+        <span class="practice-card-icon">🏠</span>
         <h3>Property & Real Estate</h3>
-        <p>Title searches, property disputes, inheritance matters, and NRI property management handled end-to-end.</p>
-        <span class="practice-card-link">Explore Practice →</span>
+        <p>Title searches, inheritance, property disputes, and NRI property management end-to-end.</p>
+        <span class="practice-card-arrow">Explore Practice →</span>
       </div>
     </div>
     <div class="practice-card">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="Immigration Law" />
-      <div class="practice-card-overlay">
-        <div class="practice-card-icon">✈️</div>
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80" alt="Immigration" />
+      <div class="practice-overlay">
+        <span class="practice-card-icon">✈️</span>
         <h3>Immigration & Citizenship</h3>
-        <p>Visa refusal appeals, citizenship applications, OCI matters, and cross-border legal issues for the Indian diaspora.</p>
-        <span class="practice-card-link">Explore Practice →</span>
+        <p>Visa refusals, OCI matters, citizenship applications, and cross-border legal representation.</p>
+        <span class="practice-card-arrow">Explore Practice →</span>
       </div>
     </div>
     <div class="practice-card">
-      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Medical Law" />
-      <div class="practice-card-overlay">
-        <div class="practice-card-icon">⚕️</div>
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=80" alt="Medical Negligence" />
+      <div class="practice-overlay">
+        <span class="practice-card-icon">⚕️</span>
         <h3>Medical Negligence</h3>
-        <p>Pursuing justice for victims of medical malpractice through expert opinions, compensation claims, and litigation.</p>
-        <span class="practice-card-link">Explore Practice →</span>
+        <p>Pursuing justice for victims of medical malpractice through expert assessment and litigation.</p>
+        <span class="practice-card-arrow">Explore Practice →</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY GANDOTRA -->
+<!-- ══ WHY SECTION ══ -->
 <section class="why-section">
   <div class="why-image-wrap reveal">
     <img class="why-img"
-         src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=85"
-         alt="Legal professionals" />
-    <div class="why-corner"></div>
-    <div class="why-corner-br"></div>
+         src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=85"
+         alt="Legal professionals in conference" />
+    <div class="corner-mark tl"></div>
+    <div class="corner-mark br"></div>
   </div>
   <div class="reveal">
-    <div class="section-eyebrow">
-      <div class="eyebrow-line"></div>
+    <div class="section-tag">
+      <div class="section-tag-line"></div>
       <span>Why Choose Us</span>
     </div>
-    <h2 class="section-title">The Gandotra<br><em>Difference</em></h2>
-    <p class="section-body">
+    <h2 class="section-h2">The Gandotra<br><em>Difference</em></h2>
+    <p class="section-body" style="margin-bottom:36px;">
       We don't just practice law — we build lasting client relationships grounded in trust, transparency, and tireless advocacy.
     </p>
     <div class="why-points">
       <div class="why-point">
         <span class="why-num">01</span>
-        <div class="why-point-body">
+        <div>
           <h4>Multi-Tier Court Coverage</h4>
-          <p>Dedicated teams for district courts, High Court, and the Supreme Court of India — full spectrum representation under one roof.</p>
+          <p>Dedicated teams for district courts, High Court, and the Supreme Court — full spectrum representation under one roof.</p>
         </div>
       </div>
       <div class="why-point">
         <span class="why-num">02</span>
-        <div class="why-point-body">
+        <div>
           <h4>Transparent Fee Structure</h4>
-          <p>No hidden costs, no surprises. We discuss fees openly before engagement and provide detailed billing at every stage.</p>
+          <p>No hidden costs, no surprises. Fees are discussed openly before engagement with detailed billing at every stage.</p>
         </div>
       </div>
       <div class="why-point">
         <span class="why-num">03</span>
-        <div class="why-point-body">
+        <div>
           <h4>Global NRI Network</h4>
-          <p>Serving the Indian diaspora across 30+ countries with timely communication, virtual consultations, and local liaison services.</p>
+          <p>Serving the Indian diaspora across 30+ countries with virtual consultations and dedicated local liaison support.</p>
         </div>
       </div>
       <div class="why-point">
         <span class="why-num">04</span>
-        <div class="why-point-body">
-          <h4>Personalised Attention</h4>
-          <p>Every client receives direct access to senior counsel — not associates. Your case gets the seniority it deserves from day one.</p>
+        <div>
+          <h4>Senior Counsel, Every Case</h4>
+          <p>Every client receives direct access to senior counsel from day one — not passed down to associates.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="gold-divider"></div>
+<!-- ══ PROCESS ══ -->
+<section class="process-section">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:0;">
+    <div class="reveal">
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span>How We Work</span>
+      </div>
+      <h2 class="section-h2">Our Approach to<br><em>Your Case</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="section-body">Every matter is approached with the same four-step process — designed to give you clarity, confidence, and the best possible outcome from the very first meeting.</p>
+    </div>
+  </div>
+  <div class="process-grid">
+    <div class="process-card reveal">
+      <span class="process-step">01</span>
+      <span class="process-icon">💬</span>
+      <h4>Initial Consultation</h4>
+      <p>We listen carefully to understand every dimension of your matter in a confidential, pressure-free discussion with senior counsel.</p>
+    </div>
+    <div class="process-card reveal">
+      <span class="process-step">02</span>
+      <span class="process-icon">🔍</span>
+      <h4>Legal Assessment</h4>
+      <p>Our team conducts a thorough review of the facts, applicable law, and precedent to map your legal position and options clearly.</p>
+    </div>
+    <div class="process-card reveal">
+      <span class="process-step">03</span>
+      <span class="process-icon">📐</span>
+      <h4>Strategy & Planning</h4>
+      <p>We craft a bespoke legal strategy tailored to your goals — balancing risk, cost, and the most favourable path forward.</p>
+    </div>
+    <div class="process-card reveal">
+      <span class="process-step">04</span>
+      <span class="process-icon">⚖️</span>
+      <h4>Execution & Resolution</h4>
+      <p>We represent you with precision and resolve — in court, in negotiation, or in compliance — until your matter is concluded.</p>
+    </div>
+  </div>
+</section>
 
-<!-- TESTIMONIALS -->
+<!-- ══ TESTIMONIALS ══ -->
 <section class="testimonials-section">
-  <div class="section-eyebrow reveal"><span>Client Testimonials</span></div>
-  <h2 class="section-title reveal">Trusted by <em>Thousands</em></h2>
+  <div class="testimonials-header reveal">
+    <div class="section-tag" style="justify-content:center;">
+      <div class="section-tag-line"></div>
+      <span>Client Testimonials</span>
+    </div>
+    <h2 class="section-h2" style="text-align:center;">Trusted by <em>Thousands</em></h2>
+    <p class="section-body" style="text-align:center; max-width:540px; margin:0 auto;">Hear from clients across India and the world who entrusted us with matters that mattered most to them.</p>
+  </div>
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
-      <span class="testimonial-quote">"</span>
-      <p class="testimonial-text">Gandotra & Associates resolved a complicated NRI property dispute that had been dragging for years. Their expertise and persistence was extraordinary. I felt supported throughout.</p>
-      <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-author">
-        <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Client" />
+      <span class="t-quote-mark">"</span>
+      <p class="t-text">Gandotra & Associates resolved a complicated NRI property dispute that had been dragging for years. Their expertise and persistence was extraordinary — I felt genuinely supported throughout.</p>
+      <div class="t-stars">★★★★★</div>
+      <hr class="t-rule">
+      <div class="t-author">
+        <img class="t-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="Client" />
         <div>
-          <span class="author-name">Rajiv Mehta</span>
-          <span class="author-info">NRI Client · Toronto, Canada</span>
+          <span class="t-name">Rajiv Mehta</span>
+          <span class="t-role">NRI Client · Toronto, Canada</span>
         </div>
       </div>
     </div>
     <div class="testimonial-card reveal">
-      <span class="testimonial-quote">"</span>
-      <p class="testimonial-text">Exceptional corporate legal support. The team handled our company's merger compliance and due diligence with remarkable thoroughness and professionalism. Highly recommended.</p>
-      <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-author">
-        <img class="author-avatar" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80" alt="Client" />
+      <span class="t-quote-mark">"</span>
+      <p class="t-text">Exceptional corporate legal support. The team handled our company's merger compliance with remarkable thoroughness. Their attention to detail gave us complete confidence throughout the process.</p>
+      <div class="t-stars">★★★★★</div>
+      <hr class="t-rule">
+      <div class="t-author">
+        <img class="t-avatar" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=80" alt="Client" />
         <div>
-          <span class="author-name">Sunita Kapoor</span>
-          <span class="author-info">CEO · New Delhi</span>
+          <span class="t-name">Sunita Kapoor</span>
+          <span class="t-role">Managing Director · New Delhi</span>
         </div>
       </div>
     </div>
     <div class="testimonial-card reveal">
-      <span class="testimonial-quote">"</span>
-      <p class="testimonial-text">During the most difficult time of my life, Gandotra & Associates provided not just legal expertise but genuine compassion. The outcome exceeded all my expectations.</p>
-      <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-author">
-        <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Client" />
+      <span class="t-quote-mark">"</span>
+      <p class="t-text">During the most difficult time of my life, Gandotra & Associates provided not just expert legal counsel but genuine compassion and guidance. The outcome exceeded every expectation I had.</p>
+      <div class="t-stars">★★★★★</div>
+      <hr class="t-rule">
+      <div class="t-author">
+        <img class="t-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80" alt="Client" />
         <div>
-          <span class="author-name">Arjun Sharma</span>
-          <span class="author-info">Individual Client · Mumbai</span>
+          <span class="t-name">Arjun Sharma</span>
+          <span class="t-role">Individual Client · Mumbai</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT BAND -->
-<div class="contact-band" id="contact">
-  <div class="contact-text">
+<!-- ══ CTA ══ -->
+<section class="cta-section" id="cta">
+  <div class="reveal">
     <h2>Ready to Protect Your <em>Legal Rights?</em></h2>
-    <p>Schedule a confidential consultation with our senior advocates today.</p>
+    <p>Schedule a confidential consultation with our senior advocates today. No obligation — just clarity.</p>
   </div>
-  <div class="contact-actions">
-    <a href="tel:+911143709221" class="btn-outline">📞 +91 11 4370 9221</a>
-    <a href="#" class="btn-primary">Book Consultation</a>
+  <div class="cta-actions reveal">
+    <a href="#" class="btn-white">Book Consultation</a>
+    <a href="tel:+911143709221" class="btn-white-outline">📞 +91 11 4370 9221</a>
+    <span class="cta-phone">Mon – Sat, 9:00 AM – 7:00 PM IST</span>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div style="font-family:'Playfair Display',serif; color:var(--gold); font-size:28px; font-weight:700; margin-bottom:4px;">
-        Gandotra <span style="font-style:italic;">&</span> Associates
-      </div>
-      <div style="font-size:10px; letter-spacing:3px; color:var(--grey); margin-bottom:20px; text-transform:uppercase;">
-        Litigation · Consultation · Compliances
-      </div>
-      <p>A premier litigation law firm in New Delhi, providing distinguished legal services to domestic and international clients since 2006.</p>
+      <div class="footer-brand-name">Gandotra <span>&</span> Associates</div>
+      <span class="footer-brand-tag">Litigation · Consultation · Compliances</span>
+      <p>A premier litigation law firm in New Delhi, providing distinguished legal services to domestic and international clients since 2006. Registered advocates across district, High Court, and Supreme Court.</p>
     </div>
     <div class="footer-col">
-      <h4>Practice Areas</h4>
+      <div class="footer-col-head">Practice Areas</div>
       <ul>
         <li><a href="#">Corporate Law</a></li>
         <li><a href="#">Family Law</a></li>
@@ -929,7 +1020,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Quick Links</h4>
+      <div class="footer-col-head">Quick Links</div>
       <ul>
         <li><a href="#">About the Firm</a></li>
         <li><a href="#">Our Attorneys</a></li>
@@ -940,49 +1031,88 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <div class="footer-col-head">Contact</div>
       <ul>
         <li><a href="#">New Delhi, India</a></li>
         <li><a href="tel:+911143709221">+91 11 4370 9221</a></li>
         <li><a href="mailto:info@gandotra.law">info@gandotra.law</a></li>
-        <li style="padding-top:8px;">
-          <div style="font-size:11px; color:var(--grey); margin-bottom:8px; letter-spacing:2px; text-transform:uppercase;">Mon – Sat</div>
-          <div style="font-size:13px; color:var(--off-white);">9:00 AM – 7:00 PM</div>
-        </li>
       </ul>
+      <div style="margin-top:24px; padding:18px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03);">
+        <div style="font-size:9.5px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:6px;">Office Hours</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.55);">Mon – Sat: 9:00 AM – 7:00 PM</div>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Gandotra & Associates. All rights reserved.</span>
-    <span>Designed for <span>excellence in law</span></span>
-    <span><a href="#" style="color:inherit; text-decoration:none;">Privacy Policy</a> · <a href="#" style="color:inherit; text-decoration:none;">Terms of Service</a></span>
+    <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a> &nbsp;·&nbsp; <a href="#">Disclaimer</a></span>
   </div>
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+// ── CAROUSEL ──
+const track = document.getElementById('carouselTrack');
+const dots = document.querySelectorAll('.dot');
+const progressBar = document.getElementById('carouselProgress');
+let current = 0;
+const total = 4;
+const autoInterval = 5500;
+let progressStart = null;
+let progressRAF = null;
+let autoTimer = null;
 
-  // Nav scroll effect
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav.style.height = '68px';
-      nav.style.boxShadow = '0 4px 40px rgba(0,0,0,0.6)';
-    } else {
-      nav.style.height = '80px';
-      nav.style.boxShadow = 'none';
+function goTo(idx) {
+  current = (idx + total) % total;
+  track.style.transform = `translateX(-${current * 25}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  resetProgress();
+}
+
+function resetProgress() {
+  cancelAnimationFrame(progressRAF);
+  progressBar.style.transition = 'none';
+  progressBar.style.width = '0%';
+  progressStart = null;
+  requestAnimationFrame(() => requestAnimationFrame(animateProgress));
+}
+
+function animateProgress(ts) {
+  if (!progressStart) progressStart = ts;
+  const elapsed = ts - progressStart;
+  const pct = Math.min((elapsed / autoInterval) * 100, 100);
+  progressBar.style.transition = 'none';
+  progressBar.style.width = pct + '%';
+  if (pct < 100) {
+    progressRAF = requestAnimationFrame(animateProgress);
+  } else {
+    goTo(current + 1);
+  }
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+
+// Start
+requestAnimationFrame(animateProgress);
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), 80);
+      ro.unobserve(entry.target);
     }
   });
+}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+revealEls.forEach(el => ro.observe(el));
+
+// ── NAV SCROLL ──
+const nav = document.getElementById('site-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 </script>
 </body>
 </html>
