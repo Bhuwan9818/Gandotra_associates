@@ -535,6 +535,7 @@ nav.scrolled { height: 100px; box-shadow: 0 2px 24px rgba(26,23,16,0.08); }
   background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
   margin-top: 56px;
 }
+
 .process-card {
   background: rgba(255,255,255,0.03); padding: 40px 32px;
   border-right: none; position: relative;
@@ -677,6 +678,15 @@ footer {
   footer { padding: 48px 24px 0; }
   .carousel-dots { left: 28px; }
   .carousel-arrows { right: 28px; }
+}
+
+@media (max-width: 600px) {
+  .services-strip { grid-template-columns: 1fr; }
+  .about-features { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .stats-section { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .process-div { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
@@ -1062,7 +1072,7 @@ footer {
 
 <!-- ══ PROCESS ══ -->
 <section class="process-section">
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:0;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:0;" class="process-div">
     <div class="reveal">
       <div class="section-tag">
         <div class="section-tag-line"></div>
