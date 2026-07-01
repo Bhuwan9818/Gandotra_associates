@@ -825,9 +825,9 @@ footer {
 body.nav-locked { overflow: hidden; }
 
 /* ══════════════════════════════════════════
-   RESPONSIVE — TABLET (≤960px)
+   RESPONSIVE — TABLET (≤1024px)
 ══════════════════════════════════════════ */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-divider { display: none; }
@@ -1201,7 +1201,7 @@ body.nav-locked { overflow: hidden; }
 .mini-stat .ms-num { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--gold-light); display: block; margin-bottom: 6px; }
 .mini-stat .ms-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .inner-section, .inner-section.tight { padding: 56px 24px; }
   .content-columns, .content-columns.three { grid-template-columns: 1fr; gap: 32px; }
   .checklist-grid, .checklist-grid.two { grid-template-columns: 1fr; }
